@@ -1,0 +1,103 @@
+Duración: 100 horas.
+
+Contenidos básicos:
+
+1. Selección de arquitecturas y herramientas de programación:
+
+− Modelos de programación en entornos cliente / servidor.
+
+− Generación dinámica de páginas web.
+
+− Lenguajes de programación en entorno servidor.
+
+− Integración con los lenguajes de marcas.
+
+− Integración con los servidores web.
+
+− Herramientas de programación.
+
+2. Inserción de código en páginas web:
+
+− Tecnologías asociadas: PHP, ASP, JSP, “Servlets”, entre otras.
+
+− Obtención del lenguaje de marcas para mostrar en el cliente.
+
+− Etiquetas para inserción de código.
+
+− Tipos de datos. Conversiones entre tipos de datos.
+
+− Variables.
+
+3. Programación basada en lenguajes de marcas con código embebido:
+
+− Tomas de decisión.
+
+− Bucles.
+
+− Tipos de datos compuestos.
+
+− Funciones.
+
+− Recuperación y utilización de información proveniente del cliente Web.
+
+− Procesamiento de la información introducida en un formulario.
+
+4. Desarrollo de aplicaciones Web utilizando código embebido:
+
+− Mantenimiento del estado.
+
+− Seguridad: usuarios, perfiles, roles.
+
+− Autentificación de usuarios.
+
+− Pruebas y depuración.
+
+5. Generación dinámica de páginas Web:
+
+− Mecanismos de separación de la lógica de negocio.
+
+− Controles de servidor.
+
+− Mecanismos de generación dinámica del interface Web.
+
+6. Utilización de técnicas de acceso a datos:
+
+− Establecimiento de conexiones.
+
+− Recuperación y edición de información.
+
+− Utilización de conjuntos de resultados.
+
+− Ejecución de sentencias SQL.
+
+− Transacciones.
+
+− Utilización de otros orígenes de datos.
+
+7. Programación de servicios Web:
+
+− Mecanismos y protocolos implicados.
+
+− Generación de un servicio Web.
+
+− Descripción del servicio.
+
+− Interface de un servicio Web.
+
+8. Generación dinámica de páginas Web interactivas:
+
+− Librerías y tecnologías relacionadas.
+
+− Generación dinámica de páginas interactivas.
+
+− Obtención remota de información.
+
+− Modificación de la estructura de la página Web.
+
+9. Desarrollo de aplicaciones Web híbridas:
+
+− Reutilización de código e información.
+
+− Utilización de información proveniente de repositorios.
+
+− Incorporación de funcionalidades específicas.

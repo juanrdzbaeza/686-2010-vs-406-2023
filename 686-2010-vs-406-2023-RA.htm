@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WinMerge File Compare Report</title>
+<style>
+<!--
+table { table-layout: fixed; margin: 0; border: 1px solid #a0a0a0; box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); }
+th { position: sticky; top: 0; }
+td,th { word-break: break-all; font-size: 12pt; padding: 0 3px; }
+tr { vertical-align: top; }
+.title { font-weight: bold; color: white; background-color: blue; vertical-align: top; text-align: center; padding: 4px 4px; background: linear-gradient(mediumblue, darkblue);}
+.sf3b2 {color: #000000; background-color: #ffffff; }
+.sf3b5 {color: #000000; background-color: #0078d7; }
+.sf3b14 {color: #000000; background-color: #ffa0a0; }
+.sf3b16 {color: #000000; background-color: #f1e2ad; }
+.sf3b18 {color: #000000; background-color: #ffaa82; }
+.sf3b19 {color: #000000; background-color: #c8816c; }
+.sf6b2 {color: #ffffff; background-color: #ffffff; }
+.sf6b5 {color: #ffffff; background-color: #0078d7; }
+.sf6b14 {color: #ffffff; background-color: #ffa0a0; }
+.sf6b16 {color: #ffffff; background-color: #f1e2ad; }
+.sf6b18 {color: #ffffff; background-color: #ffaa82; }
+.sf6b19 {color: #ffffff; background-color: #c8816c; }
+.sf7b2 {color: #0000ff; background-color: #ffffff; font-weight: bold; }
+.sf7b5 {color: #0000ff; background-color: #0078d7; font-weight: bold; }
+.sf7b14 {color: #0000ff; background-color: #ffa0a0; font-weight: bold; }
+.sf7b16 {color: #0000ff; background-color: #f1e2ad; font-weight: bold; }
+.sf7b18 {color: #0000ff; background-color: #ffaa82; font-weight: bold; }
+.sf7b19 {color: #0000ff; background-color: #c8816c; font-weight: bold; }
+.sf8b2 {color: #800080; background-color: #ffffff; }
+.sf8b5 {color: #800080; background-color: #0078d7; }
+.sf8b14 {color: #800080; background-color: #ffa0a0; }
+.sf8b16 {color: #800080; background-color: #f1e2ad; }
+.sf8b18 {color: #800080; background-color: #ffaa82; }
+.sf8b19 {color: #800080; background-color: #c8816c; }
+.sf9b2 {color: #008000; background-color: #ffffff; }
+.sf9b5 {color: #008000; background-color: #0078d7; }
+.sf9b14 {color: #008000; background-color: #ffa0a0; }
+.sf9b16 {color: #008000; background-color: #f1e2ad; }
+.sf9b18 {color: #008000; background-color: #ffaa82; }
+.sf9b19 {color: #008000; background-color: #c8816c; }
+.sf10b2 {color: #ff0000; background-color: #ffffff; }
+.sf10b5 {color: #ff0000; background-color: #0078d7; }
+.sf10b14 {color: #ff0000; background-color: #ffa0a0; }
+.sf10b16 {color: #ff0000; background-color: #f1e2ad; }
+.sf10b18 {color: #ff0000; background-color: #ffaa82; }
+.sf10b19 {color: #ff0000; background-color: #c8816c; }
+.sf11b2 {color: #606060; background-color: #ffffff; }
+.sf11b5 {color: #606060; background-color: #0078d7; }
+.sf11b14 {color: #606060; background-color: #ffa0a0; }
+.sf11b16 {color: #606060; background-color: #f1e2ad; }
+.sf11b18 {color: #606060; background-color: #ffaa82; }
+.sf11b19 {color: #606060; background-color: #c8816c; }
+.sf12b2 {color: #800000; background-color: #ffffff; }
+.sf12b5 {color: #800000; background-color: #0078d7; }
+.sf12b14 {color: #800000; background-color: #ffa0a0; }
+.sf12b16 {color: #800000; background-color: #f1e2ad; }
+.sf12b18 {color: #800000; background-color: #ffaa82; }
+.sf12b19 {color: #800000; background-color: #c8816c; }
+.sf13b2 {color: #0080c0; background-color: #ffffff; }
+.sf13b5 {color: #0080c0; background-color: #0078d7; }
+.sf13b14 {color: #0080c0; background-color: #ffa0a0; }
+.sf13b16 {color: #0080c0; background-color: #f1e2ad; }
+.sf13b18 {color: #0080c0; background-color: #ffaa82; }
+.sf13b19 {color: #0080c0; background-color: #c8816c; }
+.sf15b2 {color: #000000; background-color: #ffffff; }
+.sf15b5 {color: #000000; background-color: #0078d7; }
+.sf15b14 {color: #000000; background-color: #ffa0a0; }
+.sf15b16 {color: #000000; background-color: #f1e2ad; }
+.sf15b18 {color: #000000; background-color: #ffaa82; }
+.sf15b19 {color: #000000; background-color: #c8816c; }
+.sf17b2 {color: #000000; background-color: #ffffff; }
+.sf17b5 {color: #000000; background-color: #0078d7; }
+.sf17b14 {color: #000000; background-color: #ffa0a0; }
+.sf17b16 {color: #000000; background-color: #f1e2ad; }
+.sf17b18 {color: #000000; background-color: #ffaa82; }
+.sf17b19 {color: #000000; background-color: #c8816c; }
+.sf20b2 {color: #000080; background-color: #ffffff; }
+.sf20b5 {color: #000080; background-color: #0078d7; }
+.sf20b14 {color: #000080; background-color: #ffa0a0; }
+.sf20b16 {color: #000080; background-color: #f1e2ad; }
+.sf20b18 {color: #000080; background-color: #ffaa82; }
+.sf20b19 {color: #000080; background-color: #c8816c; }
+.sf21b2 {color: #0080c0; background-color: #ffffff; }
+.sf21b5 {color: #0080c0; background-color: #0078d7; }
+.sf21b14 {color: #0080c0; background-color: #ffa0a0; }
+.sf21b16 {color: #0080c0; background-color: #f1e2ad; }
+.sf21b18 {color: #0080c0; background-color: #ffaa82; }
+.sf21b19 {color: #0080c0; background-color: #c8816c; }
+.sf3b2i {color: #ababab; background-color: #ffffff; }
+.sf3b5i {color: #005190; background-color: #0078d7; }
+.sf3b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf3b16i {color: #a19774; background-color: #f1e2ad; }
+.sf3b18i {color: #ab7257; background-color: #ffaa82; }
+.sf3b19i {color: #865749; background-color: #c8816c; }
+.sf6b2i {color: #ffffff; background-color: #ffffff; }
+.sf6b5i {color: #54a4e4; background-color: #0078d7; }
+.sf6b14i {color: #ffbfbf; background-color: #ffa0a0; }
+.sf6b16i {color: #f5ebc8; background-color: #f1e2ad; }
+.sf6b18i {color: #ffc6ab; background-color: #ffaa82; }
+.sf6b19i {color: #daaa9c; background-color: #c8816c; }
+.sf7b2i {color: #ababff; background-color: #ffffff; font-weight: bold; }
+.sf7b5i {color: #0051e4; background-color: #0078d7; font-weight: bold; }
+.sf7b14i {color: #ab6bbf; background-color: #ffa0a0; font-weight: bold; }
+.sf7b16i {color: #a197c8; background-color: #f1e2ad; font-weight: bold; }
+.sf7b18i {color: #ab72ab; background-color: #ffaa82; font-weight: bold; }
+.sf7b19i {color: #86579c; background-color: #c8816c; font-weight: bold; }
+.sf8b2i {color: #d5abd5; background-color: #ffffff; }
+.sf8b5i {color: #2a51bb; background-color: #0078d7; }
+.sf8b14i {color: #d56b96; background-color: #ffa0a0; }
+.sf8b16i {color: #cc979f; background-color: #f1e2ad; }
+.sf8b18i {color: #d57282; background-color: #ffaa82; }
+.sf8b19i {color: #b15772; background-color: #c8816c; }
+.sf9b2i {color: #abd5ab; background-color: #ffffff; }
+.sf9b5i {color: #007a90; background-color: #0078d7; }
+.sf9b14i {color: #ab966b; background-color: #ffa0a0; }
+.sf9b16i {color: #a1c274; background-color: #f1e2ad; }
+.sf9b18i {color: #ab9d57; background-color: #ffaa82; }
+.sf9b19i {color: #868149; background-color: #c8816c; }
+.sf10b2i {color: #ffabab; background-color: #ffffff; }
+.sf10b5i {color: #545190; background-color: #0078d7; }
+.sf10b14i {color: #ff6b6b; background-color: #ffa0a0; }
+.sf10b16i {color: #f59774; background-color: #f1e2ad; }
+.sf10b18i {color: #ff7257; background-color: #ffaa82; }
+.sf10b19i {color: #da5749; background-color: #c8816c; }
+.sf11b2i {color: #cbcbcb; background-color: #ffffff; }
+.sf11b5i {color: #1f71b0; background-color: #0078d7; }
+.sf11b14i {color: #cb8b8b; background-color: #ffa0a0; }
+.sf11b16i {color: #c1b794; background-color: #f1e2ad; }
+.sf11b18i {color: #cb9277; background-color: #ffaa82; }
+.sf11b19i {color: #a67769; background-color: #c8816c; }
+.sf12b2i {color: #d5abab; background-color: #ffffff; }
+.sf12b5i {color: #2a5190; background-color: #0078d7; }
+.sf12b14i {color: #d56b6b; background-color: #ffa0a0; }
+.sf12b16i {color: #cc9774; background-color: #f1e2ad; }
+.sf12b18i {color: #d57257; background-color: #ffaa82; }
+.sf12b19i {color: #b15749; background-color: #c8816c; }
+.sf13b2i {color: #abd5eb; background-color: #ffffff; }
+.sf13b5i {color: #007ad0; background-color: #0078d7; }
+.sf13b14i {color: #ab96aa; background-color: #ffa0a0; }
+.sf13b16i {color: #a1c2b3; background-color: #f1e2ad; }
+.sf13b18i {color: #ab9d96; background-color: #ffaa82; }
+.sf13b19i {color: #868187; background-color: #c8816c; }
+.sf15b2i {color: #ababab; background-color: #ffffff; }
+.sf15b5i {color: #005190; background-color: #0078d7; }
+.sf15b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf15b16i {color: #a19774; background-color: #f1e2ad; }
+.sf15b18i {color: #ab7257; background-color: #ffaa82; }
+.sf15b19i {color: #865749; background-color: #c8816c; }
+.sf17b2i {color: #ababab; background-color: #ffffff; }
+.sf17b5i {color: #005190; background-color: #0078d7; }
+.sf17b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf17b16i {color: #a19774; background-color: #f1e2ad; }
+.sf17b18i {color: #ab7257; background-color: #ffaa82; }
+.sf17b19i {color: #865749; background-color: #c8816c; }
+.sf20b2i {color: #ababd5; background-color: #ffffff; }
+.sf20b5i {color: #0051bb; background-color: #0078d7; }
+.sf20b14i {color: #ab6b96; background-color: #ffa0a0; }
+.sf20b16i {color: #a1979f; background-color: #f1e2ad; }
+.sf20b18i {color: #ab7282; background-color: #ffaa82; }
+.sf20b19i {color: #865772; background-color: #c8816c; }
+.sf21b2i {color: #abd5eb; background-color: #ffffff; }
+.sf21b5i {color: #007ad0; background-color: #0078d7; }
+.sf21b14i {color: #ab96aa; background-color: #ffa0a0; }
+.sf21b16i {color: #a1c2b3; background-color: #f1e2ad; }
+.sf21b18i {color: #ab9d96; background-color: #ffaa82; }
+.sf21b19i {color: #868187; background-color: #c8816c; }
+.cn {text-align: center; word-break: normal; color: #000000; background-color: #f0f0f0;}
+.ln {text-align: right; word-break: normal; color: #000000; background-color: #f0f0f0;}
+-->
+</style>
+</head>
+<body>
+<table style="width: 100%; border-collapse: collapse;">
+<colgroup>
+<col style="width: 0.5em;" />
+<col style="width: calc(100% / 2 - 0.5em);" />
+<col style="width: 0.5em;" />
+<col style="width: calc(100% / 2 - 0.5em);" />
+</colgroup>
+<thead>
+<tr>
+<th colspan="2" class="title">C:\Users\juan\Documents\VScodeProjects\686-2010-vs-406-2023\686-2010-RA.txt</th>
+<th colspan="2" class="title">C:\Users\juan\Documents\VScodeProjects\686-2010-vs-406-2023\405-2023-RA.txt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="ln"><a id="d1" href="#d1">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">Módulo </span><span class="sf17b16">P</span><span style="color: #000000; background-color: #efcb05; ">rofesional: Desarrollo </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb en entorno servidor.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">Módulo </span><span class="sf17b16">p</span><span style="color: #000000; background-color: #efcb05; ">rofesional: Desarrollo </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb en entorno servidor.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Equivalencia en créditos ECTS: 12.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Equivalencia en créditos ECTS: 12.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Código: 0613.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Código: 0613.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Resultados de aprendizaje y criterios de evaluación.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Resultados de aprendizaje y criterios de evaluación.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d2" href="#d2">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">1. Selecciona las arquitecturas y tecnologías de programación </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb en entorno servidor, analizando sus capacidades y características propias.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">1. Selecciona las arquitecturas y tecnologías de programación </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb en entorno servidor, analizando sus capacidades y características propias.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Criterios de evaluación:</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Criterios de evaluación:</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d3" href="#d3">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; a) Se han caracterizado y diferenciado los modelos de ejecución de código en el servidor y en el cliente </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; a) Se han caracterizado y diferenciado los modelos de ejecución de código en el servidor y en el cliente </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; b) Se han reconocido las ventajas que proporciona la generación dinámica de páginas</span><span class="sf17b18">&nbsp;Web y sus diferencias con la inclusión de sentencias de guiones en el interior de las páginas Web</span><span style="color: #000000; background-color: #efcb05; ">.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; b) Se han reconocido las ventajas que proporciona la generación dinámica de páginas</span><span style="color: #000000; background-color: #efcb05; ">.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; c) Se han identificado los mecanismos de ejecución de código en los servidores </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; c) Se han identificado los mecanismos de ejecución de código en los servidores </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; d) Se han reconocido las funcionalidades que aportan los servidores de aplicaciones y su integración con los servidores </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; d) Se han reconocido las funcionalidades que aportan los servidores de aplicaciones y su integración con los servidores </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; e) Se han identificado y caracterizado los principales lenguajes y tecnologías relacionados con la programación </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb en entorno servidor.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; e) Se han identificado y caracterizado los principales lenguajes y tecnologías relacionados con la programación </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb en entorno servidor.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; f) Se han verificado los mecanismos de integración de los lenguajes de marcas con los lenguajes de programación en entorno servidor.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; f) Se han verificado los mecanismos de integración de los lenguajes de marcas con los lenguajes de programación en entorno servidor.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d4" href="#d4">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; g) Se han reconocido y evaluado las herramientas </span><span style="color: #000000; background-color: #efcb05; ">de programación en entorno servidor.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; g) Se han reconocido y evaluado las herramientas </span><span class="sf17b18">y frameworks </span><span style="color: #000000; background-color: #efcb05; ">de programación en entorno servidor.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">2. Escribe sentencias ejecutables por un servidor </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb reconociendo y aplicando procedimientos de integración del código en lenguajes de marcas.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">2. Escribe sentencias ejecutables por un servidor </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb reconociendo y aplicando procedimientos de integración del código en lenguajes de marcas.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Criterios de evaluación:</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Criterios de evaluación:</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d5" href="#d5">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; a) Se han reconocido los mecanismos de generación de páginas </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb a partir de lenguajes de marcas con código embebido.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; a) Se han reconocido los mecanismos de generación de páginas </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb a partir de lenguajes de marcas con código embebido.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; b) Se han identificado las principales tecnologías asociadas.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; b) Se han identificado las principales tecnologías asociadas.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; c) Se han utilizado etiquetas para la inclusión de código en el lenguaje de marcas.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; c) Se han utilizado etiquetas para la inclusión de código en el lenguaje de marcas.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; d) Se ha reconocido la sintaxis del lenguaje de programación que se ha de utilizar.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; d) Se ha reconocido la sintaxis del lenguaje de programación que se ha de utilizar.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; e) Se han escrito sentencias simples y se han comprobado sus efectos en el documento resultante.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; e) Se han escrito sentencias simples y se han comprobado sus efectos en el documento resultante.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; f) Se han utilizado directivas para modificar el comportamiento predeterminado.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; f) Se han utilizado directivas para modificar el comportamiento predeterminado.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; g) Se han utilizado los distintos tipos de variables y operadores disponibles en el lenguaje.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; g) Se han utilizado los distintos tipos de variables y operadores disponibles en el lenguaje.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; h) Se han identificado los ámbitos de utilización de las variables.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; h) Se han identificado los ámbitos de utilización de las variables.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">3. Escribe bloques de sentencias embebidos en lenguajes de marcas, seleccionando y utilizando las estructuras de programación.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">3. Escribe bloques de sentencias embebidos en lenguajes de marcas, seleccionando y utilizando las estructuras de programación.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Criterios de evaluación:</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Criterios de evaluación:</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; a) Se han utilizado mecanismos de decisión en la creación de bloques de sentencias.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; a) Se han utilizado mecanismos de decisión en la creación de bloques de sentencias.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; b) Se han utilizado bucles y se ha verificado su funcionamiento.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; b) Se han utilizado bucles y se ha verificado su funcionamiento.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d6" href="#d6">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; c) Se han utilizado </span><span class="sf17b16">“</span><span style="color: #000000; background-color: #efcb05; ">arrays</span><span class="sf17b16">”</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;para almacenar y recuperar conjuntos de datos.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; c) Se han utilizado </span><span class="sf17b16">matrices (</span><span style="color: #000000; background-color: #efcb05; ">arrays</span><span class="sf17b16">)</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;para almacenar y recuperar conjuntos de datos.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; d) Se han creado y utilizado funciones.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; d) Se han creado y utilizado funciones.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; e) Se han utilizado formularios web para interactuar con el usuario del navegador web.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; e) Se han utilizado formularios web para interactuar con el usuario del navegador web.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; f) Se han empleado métodos para recuperar la información introducida en el formulario.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; f) Se han empleado métodos para recuperar la información introducida en el formulario.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; g) Se han añadido comentarios al código.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; g) Se han añadido comentarios al código.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d7" href="#d7">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">4. Desarrolla aplicaciones </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb embebidas en lenguajes de marcas analizando e incorporando funcionalidades según especificaciones.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">4. Desarrolla aplicaciones </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb embebidas en lenguajes de marcas analizando e incorporando funcionalidades según especificaciones.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Criterios de evaluación:</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Criterios de evaluación:</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; a) Se han identificado los mecanismos disponibles para el mantenimiento de la información que concierne a un cliente web concreto y se han señalado sus ventajas.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; a) Se han identificado los mecanismos disponibles para el mantenimiento de la información que concierne a un cliente web concreto y se han señalado sus ventajas.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d8" href="#d8">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; b) Se han utilizado </span><span class="sf17b16">sesione</span><span style="color: #000000; background-color: #efcb05; ">s para mantener el estado de las aplicaciones </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; b) Se han utilizado </span><span class="sf17b16">mecanismo</span><span style="color: #000000; background-color: #efcb05; ">s para mantener el estado de las aplicaciones </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; c) Se han utilizado </span><span class="sf17b16">“cookies”</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;para almacenar información en el cliente </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb y para recuperar su contenido.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; c) Se han utilizado </span><span class="sf17b16">mecanismos</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;para almacenar información en el cliente </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb y para recuperar su contenido.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; d) Se han identificado y caracterizado los mecanismos disponibles para la autentificación de usuarios.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; d) Se han identificado y caracterizado los mecanismos disponibles para la autentificación de usuarios.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; e) Se han escrito aplicaciones que integren mecanismos de autentificación de usuarios.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; e) Se han escrito aplicaciones que integren mecanismos de autentificación de usuarios.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d9" href="#d9">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; f) Se han </span><span class="sf17b18">realizado adaptaciones a aplicaciones Web existentes como gestores de contenidos u otras.</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; f) Se han </span><span style="color: #000000; background-color: #efcb05; ">utilizado herramientas y entornos para facilitar la programación, prueba y depuración del código.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">&nbsp; &nbsp; g) Se han </span><span style="color: #000000; background-color: #efcb05; ">utilizado herramientas y entornos para facilitar la programación, prueba y depuración del código.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">5. Desarrolla aplicaciones </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb identificando y aplicando mecanismos para separar el código de presentación de la lógica de negocio.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">5. Desarrolla aplicaciones </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb identificando y aplicando mecanismos para separar el código de presentación de la lógica de negocio.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Criterios de evaluación:</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Criterios de evaluación:</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; a) Se han identificado las ventajas de separar la lógica de negocio de los aspectos de presentación de la aplicación.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; a) Se han identificado las ventajas de separar la lógica de negocio de los aspectos de presentación de la aplicación.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d10" href="#d10">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; b) Se han analizado </span><span class="sf17b18">tecnologías </span><span style="color: #000000; background-color: #efcb05; ">y </span><span style="color: #000000; background-color: #efcb05; ">mecanismos </span><span style="color: #000000; background-color: #efcb05; ">que permiten realizar esta separación y sus características principales.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; b) Se han analizado </span><span style="color: #000000; background-color: #efcb05; ">y </span><span class="sf17b18">utilizado </span><span style="color: #000000; background-color: #efcb05; ">mecanismos </span><span class="sf17b18">y frameworks </span><span style="color: #000000; background-color: #efcb05; ">que permiten realizar esta separación y sus características principales.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; c) Se han utilizado objetos y controles en el servidor para generar el aspecto visual de la aplicación web en el cliente.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; c) Se han utilizado objetos y controles en el servidor para generar el aspecto visual de la aplicación web en el cliente.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d11" href="#d11">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; d) Se han utilizado formularios generados de forma dinámica para responder a los eventos de la aplicación </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; d) Se han utilizado formularios generados de forma dinámica para responder a los eventos de la aplicación </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; e) Se han identificado y aplicado los parámetros relativos a la configuración de la aplicación </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; e) Se han identificado y aplicado los parámetros relativos a la configuración de la aplicación </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; f) Se han escrito aplicaciones </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb con mantenimiento de estado y separación de la lógica de negocio.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; f) Se han escrito aplicaciones </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb con mantenimiento de estado y separación de la lógica de negocio.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; g) Se han aplicado los principios </span><span style="color: #000000; background-color: #efcb05; ">de </span><span style="color: #000000; background-color: #efcb05; ">la programación orientada a objetos.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; g) Se han aplicado los principios </span><span class="sf17b18">y patrones </span><span style="color: #000000; background-color: #efcb05; ">de </span><span class="sf17b18">diseño de </span><span style="color: #000000; background-color: #efcb05; ">la programación orientada a objetos.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; h) Se ha probado y documentado el código.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; h) Se ha probado y documentado el código.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d12" href="#d12">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">6. Desarrolla aplicaciones </span><span style="color: #000000; background-color: #efcb05; ">de acceso a almacenes de datos, aplicando medidas para mantener la seguridad y la integridad de la información.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">6. Desarrolla aplicaciones </span><span class="sf17b18">web </span><span style="color: #000000; background-color: #efcb05; ">de acceso a almacenes de datos, aplicando medidas para mantener la seguridad y la integridad de la información.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Criterios de evaluación:</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Criterios de evaluación:</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; a) Se han analizado las tecnologías que permiten el acceso mediante programación a la información disponible en almacenes de datos.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; a) Se han analizado las tecnologías que permiten el acceso mediante programación a la información disponible en almacenes de datos.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; b) Se han creado aplicaciones que establezcan conexiones con bases de datos.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; b) Se han creado aplicaciones que establezcan conexiones con bases de datos.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; c) Se ha recuperado información almacenada en bases de datos.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; c) Se ha recuperado información almacenada en bases de datos.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; d) Se ha publicado en aplicaciones web la información recuperada.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; d) Se ha publicado en aplicaciones web la información recuperada.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; e) Se han utilizado conjuntos de datos para almacenar la información.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; e) Se han utilizado conjuntos de datos para almacenar la información.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; f) Se han creado aplicaciones web que permitan la actualización y la eliminación de información disponible en una base de datos.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; f) Se han creado aplicaciones web que permitan la actualización y la eliminación de información disponible en una base de datos.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d13" href="#d13">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; g) Se han </span><span class="sf17b18">utilizado transacciones para mantener la consistencia de la información.</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; g) Se han </span><span style="color: #000000; background-color: #efcb05; ">probado y documentado las aplicaciones</span><span class="sf17b18">&nbsp;web</span><span style="color: #000000; background-color: #efcb05; ">.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">&nbsp; &nbsp; h) Se han </span><span style="color: #000000; background-color: #efcb05; ">probado y documentado las aplicaciones</span><span style="color: #000000; background-color: #efcb05; ">.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">7. Desarrolla servicios </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb </span><span class="sf17b16">reutilizables</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">y </span><span class="sf17b16">accesibles</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">mediante</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">protocolos </span><span class="sf17b16">web,</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">verificando</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">su</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">funcionamiento</span><span style="color: #000000; background-color: #efcb05; ">.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">7. Desarrolla servicios </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb </span><span class="sf17b16">analizando</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">su funcionamiento e implantando la estructura de sus componentes.</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">Criterios de evaluación:</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">&nbsp; &nbsp; a) Se han reconocido las características propias </span><span style="color: #000000; background-color: #efcb05; ">y </span><span class="sf17b16">el</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">ámbito</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">de aplicación de los servicios Web.</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">&nbsp; &nbsp; b) Se han reconocido las ventajas de utilizar servicios Web para proporcionar acceso a funcionalidades incorporadas a la lógica de negocio de una aplicación.</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">&nbsp; &nbsp; c) Se han identificado las tecnologías y los </span><span style="color: #000000; background-color: #efcb05; ">protocolos </span><span class="sf17b16">implicados</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">en</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">la</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">publicación y utilización de servicios Web.</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">&nbsp; &nbsp; d) Se ha programado un servicio Web.</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">&nbsp; &nbsp; e) Se ha creado el documento de descripción del servicio Web.</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">&nbsp; &nbsp; f) Se ha verificado el </span><span style="color: #000000; background-color: #efcb05; ">funcionamiento</span><span class="sf17b18">&nbsp;del servicio Web</span><span style="color: #000000; background-color: #efcb05; ">.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">&nbsp; &nbsp; g) Se ha consumido el servicio Web.</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">8. Genera páginas Web dinámicas analizando y utilizando tecnologías del servidor Web que añadan código al lenguaje de marcas.</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Criterios de evaluación:</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Criterios de evaluación:</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d14" href="#d14">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; a) Se han </span><span style="color: #000000; background-color: #efcb05; ">identificado las </span><span style="color: #000000; background-color: #efcb05; ">diferencias entre la ejecución de código en el servidor y en el cliente </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; a) Se han </span><span class="sf17b18">reconocido las características propias y el ámbito de aplicación de los servicios web.</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">&nbsp; &nbsp; b) Se han reconocido las ventajas de utilizar servicios web para proporcionar acceso a funcionalidades incorporadas a la lógica de negocio de una aplicación.</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">&nbsp; &nbsp; c) Se han </span><span style="color: #000000; background-color: #efcb05; ">identificado las </span><span class="sf17b18">tecnologías y los protocolos implicados en el consumo de servicios web.</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">&nbsp; &nbsp; d) Se han utilizado los estándares y arquitecturas más difundidos e implicados en el desarrollo de servicios web.</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">&nbsp; &nbsp; e) Se ha programado un servicio web.</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">&nbsp; &nbsp; f) Se ha verificado el funcionamiento del servicio web.</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">&nbsp; &nbsp; g) Se ha consumido el servicio web.</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">&nbsp; &nbsp; h) Se ha documentado un servicio web.</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">8. Genera páginas web dinámicas analizando y utilizando tecnologías y frameworks del servidor web que añadan código al lenguaje de marcas.</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">Criterios de evaluación:</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">&nbsp; &nbsp; a) Se han identificado las </span><span style="color: #000000; background-color: #efcb05; ">diferencias entre la ejecución de código en el servidor y en el cliente </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; b) Se han reconocido las ventajas de unir ambas tecnologías en el proceso de desarrollo de programas.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; b) Se han reconocido las ventajas de unir ambas tecnologías en el proceso de desarrollo de programas.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d15" href="#d15">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; c) Se han identificado las </span><span class="sf17b16">librer</span><span style="color: #000000; background-color: #efcb05; ">ías y </span><span class="sf17b16">la</span><span style="color: #000000; background-color: #efcb05; ">s </span><span class="sf17b18">tecnologías </span><span style="color: #000000; background-color: #efcb05; ">relacionadas con la generación por parte del servidor de páginas </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb con guiones embebidos.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; c) Se han identificado las </span><span class="sf17b16">tecnolog</span><span style="color: #000000; background-color: #efcb05; ">ías y </span><span class="sf17b16">framework</span><span style="color: #000000; background-color: #efcb05; ">s </span><span style="color: #000000; background-color: #efcb05; ">relacionadas con la generación por parte del servidor de páginas </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb con guiones embebidos.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; d) Se han utilizado estas tecnologías </span><span style="color: #000000; background-color: #efcb05; ">para generar páginas </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb que incluyan interacción con el usuario</span><span class="sf17b18">&nbsp;en forma de advertencias y peticiones de confirmación</span><span style="color: #000000; background-color: #efcb05; ">.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; d) Se han utilizado estas tecnologías </span><span class="sf17b18">y frameworks </span><span style="color: #000000; background-color: #efcb05; ">para generar páginas </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb que incluyan interacción con el usuario</span><span style="color: #000000; background-color: #efcb05; ">.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; e) Se han utilizado estas tecnologías</span><span style="color: #000000; background-color: #efcb05; ">, para generar páginas </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb que incluyan verificación de formularios.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; e) Se han utilizado estas tecnologías</span><span class="sf17b18">&nbsp;y frameworks</span><span style="color: #000000; background-color: #efcb05; ">, para generar páginas </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb que incluyan verificación de formularios.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; f) Se han utilizado estas tecnologías </span><span style="color: #000000; background-color: #efcb05; ">para generar páginas web que incluyan modificación dinámica de su contenido y su estructura.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; f) Se han utilizado estas tecnologías </span><span class="sf17b18">y frameworks </span><span style="color: #000000; background-color: #efcb05; ">para generar páginas web que incluyan modificación dinámica de su contenido y su estructura.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; g) Se han aplicado estas tecnologías </span><span style="color: #000000; background-color: #efcb05; ">en la programación de aplicaciones </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; g) Se han aplicado estas tecnologías </span><span class="sf17b18">y frameworks </span><span style="color: #000000; background-color: #efcb05; ">en la programación de aplicaciones </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">9. Desarrolla aplicaciones </span><span class="sf17b16">W</span><span style="color: #000000; background-color: #efcb05; ">eb híbridas seleccionando y utilizando </span><span class="sf17b16">librer</span><span style="color: #000000; background-color: #efcb05; ">ías</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">de</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">código</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;y repositorios heterogéneos de información.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">9. Desarrolla aplicaciones </span><span class="sf17b16">w</span><span style="color: #000000; background-color: #efcb05; ">eb híbridas seleccionando y utilizando </span><span class="sf17b16">tecnolog</span><span style="color: #000000; background-color: #efcb05; ">ías</span><span class="sf17b18">,</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">frameworks</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">servidor</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;y repositorios heterogéneos de información.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Criterios de evaluación:</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">Criterios de evaluación:</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; a) Se han reconocido las ventajas que proporciona la reutilización de código y el aprovechamiento de información ya existente.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; a) Se han reconocido las ventajas que proporciona la reutilización de código y el aprovechamiento de información ya existente.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d16" href="#d16">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; b) Se han identificado </span><span class="sf17b16">librer</span><span style="color: #000000; background-color: #efcb05; ">ías </span><span class="sf17b18">de código </span><span style="color: #000000; background-color: #efcb05; ">y </span><span class="sf17b16">tecnología</span><span style="color: #000000; background-color: #efcb05; ">s aplicables en la creación de aplicaciones web híbridas.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; b) Se han identificado </span><span class="sf17b16">tecnolog</span><span style="color: #000000; background-color: #efcb05; ">ías </span><span style="color: #000000; background-color: #efcb05; ">y </span><span class="sf17b16">framework</span><span style="color: #000000; background-color: #efcb05; ">s aplicables en la creación de aplicaciones web híbridas.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; c) Se ha creado una aplicación web que recupere y procese repositorios de información ya existentes.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; c) Se ha creado una aplicación web que recupere y procese repositorios de información ya existentes.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d17" href="#d17">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; d) Se han creado repositorios específicos a partir de información existente en </span><span class="sf17b18">Internet y en </span><span style="color: #000000; background-color: #efcb05; ">almacenes de información.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; d) Se han creado repositorios específicos a partir de información existente en </span><span style="color: #000000; background-color: #efcb05; ">almacenes de información.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; e) Se han utilizado librerías de código </span><span style="color: #000000; background-color: #efcb05; ">para incorporar funcionalidades específicas a una aplicación web.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; e) Se han utilizado librerías de código </span><span class="sf17b18">y frameworks </span><span style="color: #000000; background-color: #efcb05; ">para incorporar funcionalidades específicas a una aplicación web.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; f) Se han programado servicios y aplicaciones web utilizando como base información y código generados por terceros.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">&nbsp; &nbsp; f) Se han programado servicios y aplicaciones web utilizando como base información y código generados por terceros.</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d18" href="#d18">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; g) Se han </span><span style="color: #000000; background-color: #efcb05; ">probado, depurado y documentado las aplicaciones generadas.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; g) Se han </span><span class="sf17b18">analizado y utilizado librerías de código relacionadas con Big Data e inteligencia de negocios, para incorporar análisis e inteligencia de datos proveniente de repositorios.</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">&nbsp; &nbsp; h) Se han </span><span style="color: #000000; background-color: #efcb05; ">probado, depurado y documentado las aplicaciones generadas.</span></code></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
